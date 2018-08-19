@@ -28,7 +28,7 @@ export class UserService {
 
   async update(id: string, user: any): Promise<User> {
     const found = this.findOne(id);
-    const updated = { ...found, ...user };
+    const updated = { ...found, ...user, id };
     await this.remove(id);
     await this.create(updated);
     return updated;
